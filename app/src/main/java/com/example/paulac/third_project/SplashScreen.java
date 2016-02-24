@@ -10,7 +10,6 @@ import android.view.WindowManager;
 
 public class SplashScreen extends Activity {
 
-    //Set waktu lama splashscreen
     private static int splashInterval = 2000;
 
     @Override
@@ -32,7 +31,6 @@ public class SplashScreen extends Activity {
                 startActivity(i);
 
 
-                //jeda selesai Splashscreen
                 this.finish();
             }
 

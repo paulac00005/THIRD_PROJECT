@@ -12,15 +12,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private EditText Username, Password;
     private Button login;
-    private static final String login_url = "http://10.4.101.44/sbs/login.php";
-    protected final String key = "70930f27";
-
-
-
-
-    /*private String error;
-    InputStream is1;
-    String text;*/
  
 
     @Override
