@@ -31,7 +31,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     //Defining views
     private EditText etUsername, etPassword, etReenter, etAnswer;
     private Spinner security;
-    private Button signup, cam, gallery;
+    private Button signup, uploadbtn;
     private ImageView iv;
     private static final int PICTURE_REQUEST = 1;
     private Uri filePath;
@@ -57,20 +57,17 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         etPassword = (EditText)findViewById(R.id.etPassword);
         etReenter = (EditText)findViewById(R.id.etReenter);
         etAnswer = (EditText)findViewById(R.id.etAnswer);
-        gallery = (Button)findViewById(R.id.gallery);
+        uploadbtn = (Button)findViewById(R.id.uploadbtn);
         signup = (Button)findViewById(R.id.signup);
         iv = (ImageView)findViewById(R.id.imageView);
-
-        cam.setOnClickListener(this);
-        gallery.setOnClickListener(this);
+        uploadbtn.setOnClickListener(this);
         signup.setOnClickListener(this);
 
         if(iv != null){
+            uploadbtn.setVisibility(View.VISIBLE);
+        }else{
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
             iv.setLayoutParams(layoutParams);
-            cam.setVisibility(View.GONE);
-            gallery.setVisibility(View.GONE);
-        }else{
             iv.setVisibility(View.GONE);
         }
     }
@@ -155,7 +152,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         if(v == signup){
             addEmployee();
-        }else if(v==cam){
+        }else if(v==uploadbtn){
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);

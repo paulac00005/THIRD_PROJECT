@@ -221,7 +221,7 @@
                 android:layout_height="30dp"
                 android:text="U P L O A D    I M A G E"
                 android:background="#368BC1"
-                android:id="@+id/gallery"
+                android:id="@+id/uploadbtn"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
