@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
@@ -21,9 +20,9 @@ import android.widget.Toast;
 
 import com.example.paulac.third_project.Classes.Config;
 import com.example.paulac.third_project.Classes.RequestHandler;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
@@ -78,12 +77,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         if (requestCode == PICTURE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             filePath = data.getData();
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                iv.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            Picasso.with(this).load(filePath)
+                    .resize(400, 300)
+                    .centerCrop()
+                    .into(iv);
+            // bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+            // iv.setImageBitmap(bitmap);
         }}
 
     public String getStringImage(Bitmap bmp){
@@ -157,6 +157,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICTURE_REQUEST);
+        }else if(v==iv){
+            if(iv!=null){
+                iv.setImageDrawable(null);
+            }
         }
     }
 }

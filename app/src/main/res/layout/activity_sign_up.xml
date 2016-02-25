@@ -10,8 +10,9 @@
 
     <LinearLayout
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scaleType="fitXY"
         android:orientation="vertical">
 
         <LinearLayout
@@ -203,11 +204,12 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitXY"/>
+            android:scaleType="centerInside"
+            android:gravity="right|center_vertical"/>
 
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -233,7 +235,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="S I G N   U P"
-            android:textStyle="bold"
             android:textColor="#ffffff"
             android:background="#368BC1"
             android:orientation="vertical"
